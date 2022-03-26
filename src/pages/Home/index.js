@@ -1,23 +1,49 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
+import { MovieContainer, MovieList, MovieImage, Container } from './styles'
 
 function HomeScreen(props) {
   const {
     navigation: { navigate }
   } = props
+  
+  const [movies, setMovies] = useState([])
 
-  const handleNavigation = () => {
-    navigate('Movie')
+  useEffect(() => {
+    axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies`)
+      .then(responde => {
+        setMovies(responde.data)
+      })
+      .catch(err => {
+        console.warn(err)
+      })
+  }, [])
+
+  const handleNavigation = (movie) => {
+    navigate('Movie', {
+      movie
+    })
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <TouchableOpacity onPress={handleNavigation}>
-        <Text>Go To Movie</Text>
-      </TouchableOpacity>
-    </View>
+    <Container>
+      <MovieList
+        data={movies}
+        contentContainerStyle={{
+          justifyContent: 'center',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        }}
+        keyExtractor={movie => movie.id}
+        renderItem={({ item: movie }) => (
+          <MovieContainer onPress={() => handleNavigation(movie)}>
+            <MovieImage source={{ uri : movie.posterURL}} />
+          </MovieContainer>
+        )}
+      />
+    </Container>
   );
 }
 
