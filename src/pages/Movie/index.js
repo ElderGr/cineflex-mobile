@@ -32,11 +32,11 @@ function MovieScreen(props) {
       const {data} = await axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${movie.id}/showtimes`)
 
       setSessions(data)
-      setMovieInfos(props.route.params.movie)
+      setMovieInfos(movie)
     }
 
     handleMovieSessions()
-  }, [])
+  }, [movie])
 
   const handleNavigation = (id) => {
     navigate('Session', {
