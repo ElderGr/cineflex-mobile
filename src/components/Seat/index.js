@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {View, Text} from 'react-native';
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
 import { Container } from './styles';
 
@@ -8,7 +8,14 @@ function Seat(props) {
     const [reserved, setReserved] = useState(false)
 
     return (
-        <Container>
+        <Container
+            disabled={!props.isAvailable}
+            reserved={reserved}
+            onPress={() => {
+                setReserved(!reserved)
+                props.handleSelectSeat(props.seat)
+            }}
+        >
             <Text>{props.name}</Text>
         </Container>
     );

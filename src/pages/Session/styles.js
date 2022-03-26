@@ -1,8 +1,8 @@
 import styled, {css} from 'styled-components'
 import { FlatList, TouchableOpacity } from 'react-native';
 
-export const Container = styled.ScrollView`
-    padding: 20px;
+export const Container = styled.View`
+    flex: 1;
 `
 
 export const SeatsContainer = styled(FlatList)`
@@ -60,4 +60,48 @@ export const LegendColor = styled.View`
     }};
 
     border-radius: 50px;
+`
+
+export const InputContainer = styled.View`
+    margin-bottom: 15px;
+`
+
+export const Input = styled.TextInput`
+    border: 1px solid #D4D4D4;
+    height: 50px;
+    border-radius: 5px;
+    padding: 15px;
+`
+
+export const Button = styled.TouchableOpacity`
+    background: #E8833A;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 50px;
+`
+
+export const ButtonText = styled.Text`
+    color: #fff;
+`
+
+export const MainContainer = styled.ScrollView`
+    padding: 20px;
+
+`
+
+export const FooterContainer = styled.View`
+    background: #9EADBA;
+    width: 100%;
+    height: 100px;
+    padding: 0 15px;
+    flex-direction: row;
+    align-items: center;
+`
+
+export const ImageContainer = styled.Image`
+    width: 48px;
+    height: 72px;
+    margin-right: 20px;
 `
