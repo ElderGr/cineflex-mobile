@@ -70,7 +70,7 @@ function SessionScreen(props) {
       }
 
       await axios.post(`https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many`, {
-        ids: selectedSeats,
+        ids: selectedSeats.map(item => (item.id)),
         name: clientName,
         cpf: CPF
       })
@@ -79,6 +79,10 @@ function SessionScreen(props) {
         movie: sessionInfo.movie,
         seats: selectedSeats,
         name: clientName,
+        day: {
+          ...sessionInfo.day,
+          time: sessionInfo.name
+        },
         cpf: CPF
       })
     }catch(err){
