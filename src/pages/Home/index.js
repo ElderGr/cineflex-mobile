@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Text } from 'react-native' 
 import axios from 'axios';
 
 import { MovieContainer, MovieList, MovieImage, Container } from './styles'
@@ -29,6 +29,7 @@ function HomeScreen(props) {
 
   return (
     <Container>
+      <Text>Selecione o filme</Text>
       <MovieList
         data={movies}
         contentContainerStyle={{
