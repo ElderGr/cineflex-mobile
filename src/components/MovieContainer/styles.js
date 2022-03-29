@@ -1,9 +1,21 @@
-import styled from 'styled-components/native'
+import styled, {css} from 'styled-components/native'
 import { TouchableOpacity } from 'react-native';
 
 export const Container = styled(TouchableOpacity)`
-    width: 145px;
-    height: 209px;
+    ${(props) => {
+        if(props.width && props.height){
+            return css`
+                width: ${props.width};
+                height: ${props.height};
+            `
+        }else{
+            return css`
+                width: 145px;
+                height: 209px;
+            `
+        }
+    }}
+    
     margin: 10px;
 
     border-width: 1;
@@ -18,6 +30,7 @@ export const Container = styled(TouchableOpacity)`
 
     justify-content: center;
     align-items: center;
+    background: #fff;
 `
 
 export const MovieImage = styled.Image`

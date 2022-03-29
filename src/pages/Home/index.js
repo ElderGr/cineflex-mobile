@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { MovieList, Container, MainTitle } from './styles'
+import { MovieList, Container } from './styles'
+
 import MovieContainer from '../../components/MovieContainer'
+import MainTitle from '../../components/MainTitle'
+
 import { ActivityIndicator, Alert  } from 'react-native'
 
 function HomeScreen(props) {
@@ -48,7 +51,7 @@ function HomeScreen(props) {
 
   return (
     <Container>
-      <MainTitle>Selecione o filme</MainTitle>
+      <MainTitle text="Selecione o filme" />
       {loading ? 
         <ActivityIndicator size="large" color="#E8833A" />
         :
@@ -62,7 +65,7 @@ function HomeScreen(props) {
           keyExtractor={movie => movie.id}
           renderItem={({ item: movie }) => (
             <MovieContainer 
-              handleNavigation={handleNavigation}
+              handleNavigation={() => handleNavigation(movie)}
               movie={movie}
             />
           )}

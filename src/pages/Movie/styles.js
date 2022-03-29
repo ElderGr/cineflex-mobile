@@ -56,3 +56,13 @@ export const ImageContainer = styled.Image`
     height: 72px;
     margin-right: 20px;
 `
+
+export const SessionDayText = styled.Text`
+    font-size: 18px;
+`
+
+export const MovieFooterText = styled.Text`
+    font-size: 20px;
+    flex: 1;
+    flex-wrap: wrap;
+`

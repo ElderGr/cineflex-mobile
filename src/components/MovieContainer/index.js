@@ -4,10 +4,16 @@ import { Container, MovieImage } from './styles';
 
 function MovieContainer({
     movie,
-    handleNavigation
+    handleNavigation,
+    width,
+    height
 }) {
   return (
-    <Container onPress={() => handleNavigation(movie)}>
+    <Container 
+      onPress={handleNavigation}
+      height={height}
+      width={width}
+    >
         <MovieImage source={{ uri : movie.posterURL}} />
     </Container>
   );

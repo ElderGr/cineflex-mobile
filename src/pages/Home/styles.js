@@ -10,9 +10,3 @@ export const MovieList = styled(FlatList)`
     width: 100%;
     margin: 25px 0;
 `
-
-export const MainTitle = styled.Text`
-    font-size: 24px;
-    text-align: center;
-    padding: 15px 0;
-`
